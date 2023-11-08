@@ -1,0 +1,27 @@
+body
+{
+    background-color: pink;
+}
+
+form
+{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+input, textarea
+{
+    border-radius: 0;
+    padding: 7px 10px;
+    border: 1px solid palegoldenrod;
+}
+button 
+{
+    width: 300px;
+    border: none;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+}
