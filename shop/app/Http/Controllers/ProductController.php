@@ -20,14 +20,8 @@ class ProductController extends Controller
     }
     public function store(Request $request, Product $product)
     {
-        $request->validate(
-            [
-                "name" => ["required", "min:3", "max:30"],
-                "imageURL" => ["required", "image", "max:10240"],
-                "description" => ["required", "min:3", "max:30"],
-                "price" => ["required", "numeric"]
-            ]
-            );
+        // dd($request);
+
         $product->name = $request->ProductName;
         $product->imageURL = $request->imageURL;
         $product->description = $request->Deskription;
@@ -36,7 +30,14 @@ class ProductController extends Controller
         $fileName = time() . '_' . $image->getClientOriginalName();
         $image->move(public_path('images'), $fileName);
         $product->imageURL = '/images/' . $fileName;
-
+        $request->validate(
+            [
+                "ProductName" => ["required", "min:3", "max:30"],
+                // "imageURL" => ["required", "image", "max:10240"],
+                "Deskription" => ["required", "min:3", "max:30"],
+                "Price" => ["required", "numeric"]
+            ]
+            );
         $product->save();
 
         return redirect("/products");
@@ -44,5 +45,17 @@ class ProductController extends Controller
         // dd($request->Imgurl);
         // dd($request->Deskription);
         // dd($request->Price);
+    }
+
+    public function show(Request $request, $id)
+    {
+        $products = Product::find($id);
+        if($products)
+        {
+            return view("products.show", ["products" => $products]);
+        }
+        return redirect("/products");
+
+
     }
 }

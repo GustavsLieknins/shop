@@ -11,7 +11,7 @@
     <main>
         <article>
             <h2>{{$product->name}}</h2>
-            <img src={{$product->imageURL}} alt="ja"/>
+            <img style='width: 750px; height: 400px;' src={{$product->imageURL}} alt="ja"/>
             <p>{{$product->description}}</p>
             <p>{{$product->price}}</p>
         </article>
