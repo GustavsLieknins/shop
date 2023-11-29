@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{$products->name}}</title>
+    <title>{{$product->name}}</title>
 </head>
 <body>
-    <h1>Products</h1>
+    <h1>Product</h1>
     <main>
         <article>
-            <h2>{{$products->name}}</h2>
-            <img  style='width: 750px; height: 400px;' src={{$products->imageURL}} alt="ja"/>
-            <p>{{$products->description}}</p>
-            <p>{{$products->price}}</p>
+            <h2>{{$product->name}}</h2>
+            <img  style='width: 750px; height: 400px;' src={{$product->imageURL}} alt="ja"/>
+            <p>{{$product->description}}</p>
+            <p>{{$product->price}}</p>
         </article>
     </main>
 </body>

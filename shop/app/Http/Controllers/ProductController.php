@@ -49,13 +49,24 @@ class ProductController extends Controller
 
     public function show(Request $request, $id)
     {
-        $products = Product::find($id);
-        if($products)
+        $product = Product::find($id);
+        if($product)
         {
-            return view("products.show", ["products" => $products]);
+            return view("products.show", ["products" => $product]);
         }
         return redirect("/products");
 
 
     }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        if($product)
+        {
+            return view("products.edit", ["product" => $product]);
+        }
+        return redirect("/products");
+    }
+
 }
